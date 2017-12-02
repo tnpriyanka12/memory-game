@@ -5,35 +5,44 @@ var cards = ["queen", "queen", "king", "king"];
 //Storing the value of cards that are actively in play
 var cardsInPlay = [];
 
-//Storing value of first card flipped
-var cardOne;
-cardOne = cards[0];
-//Push it to cards in play array
-cardsInPlay.push(cardOne);
-console.log("User flipped card " + cardsInPlay);
-
-//Storing value of second card flipped
-var cardTwo;
-cardTwo = cards[2];
-//Push it to cards in play array
-cardsInPlay.push(cardTwo);
-console.log("User flipped card " + cardsInPlay[cardsInPlay.length - 1] );
 
 
-
-//Checking if number of cards flipped is greater than 2
-if(cardsInPlay.length === 2){
+//FUNCTION - for checking for a match of two cards
+var checkForMatch = function(){
 	//if cards>2 & cards are same
 	if(cardsInPlay[0] === cardsInPlay[1]){
-		alert("You found a match!!!");
+		console.log("You found a match!!!");
 	}
 	//if cards >2 and cards are not same
 	else {
-		alert("Sorry, try again");
+		console.log("Sorry, try again");
 	}
 }
 
-else{
-	alert("Pick another card!")
+//Function for flipping card
+//function
+//
+var flipCard = function (cardId){
 
-}
+		//Printing the card user flipped
+		console.log("User flipped card " +cardId);
+
+		//Push it to cards in play array
+		cardsInPlay.push(cards[cardId]);
+		//console.log("User flipped card " + cardsInPlay[cardsInPlay.length - 1] );
+
+
+		//Checking if number of cards flipped is greater than 2
+		if(cardsInPlay.length === 2){
+			checkForMatch();
+		}
+
+		else {
+			console.log("Pick another card!");
+		}
+
+};
+
+flipCard(0);
+flipCard(2);
+
